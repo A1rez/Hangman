@@ -16,19 +16,18 @@ while shots > 0 :
 
     guess = input('\nQual o seu primeiro palpite?\n')
 
-    before = screen
-    print(before)
-
     i = 0
+    c = 0
     while i < char:
         if answer[i] == guess:
             screen[i] = guess
+            c = c + 1
         i = i + 1
-    if screen == before:
-        print('A palavra não contem ',guess)
+    if c == 0:
         shots = shots - 1
-        if shots == 0:
-            print('ENFORCADO XP')
-    elif ''.join(screen) == answer:
+    if ''.join(screen) == answer:
         print('Parabéns, você acertou. A palavra é : ',answer)
         break
+    elif shots == 0:
+        print('ENFORCADO Xp')
+        print('A palavra é : ',answer)
