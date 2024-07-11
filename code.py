@@ -53,7 +53,7 @@ while shots > 0 :
     print('Você possui ',shots,' chutes!')
     print(''.join(screen))
 
-    guess = input('\nQual o seu primeiro palpite?\n')
+    guess = input('\nQual o seu palpite?\n')
 
     i = 0
     c = 0
