@@ -1,12 +1,18 @@
 import tkinter as tk
 
+def on_enter(event, button):
+    button.invoke()
+
 def forca(screen, n, Shots, pg):
     def confirmar():
         nonlocal palavra
         palavra = entry.get()
         janela.destroy()
+
+
     palavra = None
     janela = tk.Tk()
+    janela.bind('<Return>', on_enter)
     janela.title("Jogo da forca")
 
     container1 = tk.Frame(janela)
@@ -40,6 +46,8 @@ def forca(screen, n, Shots, pg):
     container3.pack(pady=10)
     botao_confirmar = tk.Button(container3, text="Confirmar", font = ("Arial", 25), command=confirmar)
     botao_confirmar.pack()
+
+    janela.bind('<Return>', lambda event: on_enter(event, botao_confirmar))
 
     janela.mainloop()
 
