@@ -77,8 +77,28 @@ def obter_palavra():
 
     return palavra
 
+def correct(ans):
+    janela = tk.Tk()
+    janela.title("Jogo da forca")
+
+    container1 = tk.Frame(janela)
+    container1.pack(pady=10, padx=150)
+    label = tk.Label(container1, text="PARABÉNS!!\nVocê acertou :)\nA palavra é "+ str(ans), font=("Arial", 25))
+    label.pack()
+
+    janela.mainloop()
 
 
+def wrong(ans):
+    janela = tk.Tk()
+    janela.title("Jogo da forca")
+
+    container1 = tk.Frame(janela)
+    container1.pack(pady=10, padx=150)
+    label = tk.Label(container1, text="ENFORCADO!!\nXp\nA palavra é "+ str(ans), font=("Arial", 25))
+    label.pack()
+
+    janela.mainloop()
 
 
 answer = obter_palavra()
@@ -106,8 +126,7 @@ while shots > 0 :
     if c == 0:
         shots = shots - 1
     if ''.join(screen) == answer:
-        print('Parabéns, você acertou. A palavra é : ',answer)
+        correct(answer)
         break
     elif shots == 0:
-        print('ENFORCADO Xp')
-        print('A palavra é : ',answer)
+        wrong(answer)
